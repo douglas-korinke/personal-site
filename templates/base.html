@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ title|default:"Home" }} · My Site</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <a href="{% url 'index' %}">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#photos">Photos</a>
+        <a href="/static/resume.pdf" target="_blank" rel="noopener">Résumé</a>
+        <a
+          href="https://github.com/douglas-korinke/"
+          target="_blank"
+          rel="noopener"
+          >GitHub</a
+        >
+        <a
+          href="https://www.linkedin.com/in/douglaskorinke/"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        >
+        <a
+          href="https://stackoverflow.com/users/3850869/douglas-korinke"
+          target="_blank"
+          rel="noopener"
+          >Stack Overflow</a
+        >
+      </nav>
+    </header>
+
+    <main class="container">{% block content %}{% endblock %}</main>
+
+    <footer class="site-footer">
+      <p>&copy; {% now "Y" %} Douglas Korinke</p>
+    </footer>
+  </body>
+</html>

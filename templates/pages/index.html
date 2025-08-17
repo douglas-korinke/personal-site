@@ -1,0 +1,45 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<section class="hero">
+  <img class="avatar" src="{% static 'img/me.jpeg' %}" alt="Photo of me" />
+  <div>
+    <h1>Hey, I’m Doug</h1>
+    <p>Technical Delivery Manager · Builder · Tinkerer</p>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <ul class="cards">
+    <li class="card">
+      <h3>Wi-Fi Tracker</h3>
+      <p>Raspberry Pi + Python to monitor device presence by MAC.</p>
+      <a
+        href="https://github.com/yourname/wifi-tracker"
+        target="_blank"
+        rel="noopener"
+        >View</a
+      >
+    </li>
+    <li class="card">
+      <h3>Django Tools</h3>
+      <p>A tiny Django app I’m using to replace Python utilities.</p>
+      <a
+        href="https://github.com/yourname/django-tools"
+        target="_blank"
+        rel="noopener"
+        >View</a
+      >
+    </li>
+    <!-- add more as you go -->
+  </ul>
+</section>
+
+<section id="photos">
+  <h2>Photos</h2>
+  <div class="grid">
+    <img src="{% static 'img/photo1.jpg' %}" alt="Photo 1" />
+    <img src="{% static 'img/photo2.jpg' %}" alt="Photo 2" />
+    <img src="{% static 'img/photo3.jpg' %}" alt="Photo 3" />
+  </div>
+</section>
+{% endblock %}
