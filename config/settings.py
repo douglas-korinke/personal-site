@@ -118,6 +118,9 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
+
 # Templates: point to a /templates folder
 TEMPLATES[0]["DIRS"] = [BASE_DIR / "templates"]
 
