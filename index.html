@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Douglas Korinke</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <h1 class="site-title">Douglas Korinke</h1>
+        <p class="site-subtitle">Homelab · Automation · Software</p>
+      </div>
+    </header>
+
+    <main class="site-main">
+      <section class="hero">
+        <div class="container">
+          <h2>Welcome</h2>
+          <p>
+            This is my personal domain for experimentation, self-hosting, and
+            automation projects. Some services are private and require
+            authentication.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h3>Projects & Services</h3>
+          <ul class="card-list">
+            <li class="card">
+              <h4>Automation (n8n)</h4>
+              <p>
+                Self-hosted workflow automation for integrating tools and
+                services I use day to day.
+              </p>
+              <p class="card-link">
+                <a
+                  href="https://n8n.douglas-korinke.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Open n8n
+                </a>
+                <span class="card-note">(login required)</span>
+              </p>
+            </li>
+            <li class="card">
+              <h4>Homelab</h4>
+              <p>
+                Docker-based services, monitoring, and experiments running on a
+                home server and Cloudflare Tunnel.
+              </p>
+            </li>
+            <li class="card">
+              <h4>Future Projects</h4>
+              <p>
+                Space reserved for additional tools, dashboards, and public
+                resources as I expand this site.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h3>Contact</h3>
+          <p>
+            This site is primarily for personal use. If you believe this domain
+            has been flagged in error, it is not hosting phishing content and is
+            only used for personal infrastructure.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; <span id="year"></span> Douglas Korinke</p>
+      </div>
+    </footer>
+
+    <script>
+      // Simple dynamic year
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
