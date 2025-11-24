@@ -1,91 +1,511 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Douglas Korinke</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container">
-        <h1 class="site-title">Douglas Korinke</h1>
-        <p class="site-subtitle">Homelab · Automation · Software</p>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Douglas Korinke</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Douglas Korinke – Technical Delivery Manager, PLM specialist, and homelab tinkerer based in Seattle." />
+
+  <!-- Basic social sharing -->
+  <meta property="og:title" content="Douglas Korinke" />
+  <meta property="og:description" content="Technical Delivery Manager, PLM specialist, and homelab tinkerer." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.douglas-korinke.com/" />
+
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #0f172a;
+      --bg-alt: #111827;
+      --card-bg: #020617;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --border-subtle: rgba(148, 163, 184, 0.3);
+      --shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.75);
+      --radius-xl: 1.25rem;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top,
+          #1f2937 0,
+          #020617 55%,
+          #000 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 2.5rem 1.25rem 3.5rem;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 960px;
+    }
+
+    header {
+      margin-bottom: 2rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.22rem 0.75rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .badge-dot {
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(56, 189, 248, 0.25);
+    }
+
+    .hero {
+      margin-top: 0.9rem;
+      padding: 1.75rem 1.75rem 1.5rem;
+      border-radius: 1.75rem;
+      background: radial-gradient(circle at top left, #1d283a 0, #020617 55%);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+      gap: 1.75rem;
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding-top: 1.75rem;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .hero-main h1 {
+      font-size: clamp(2.1rem, 3vw, 2.7rem);
+      letter-spacing: -0.04em;
+      margin: 0 0 0.4rem;
+    }
+
+    .hero-main h1 span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 32rem;
+      line-height: 1.6;
+    }
+
+    .hero-tags {
+      margin-top: 0.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      font-size: 0.8rem;
+    }
+
+    .hero-tag {
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    .hero-actions {
+      margin-top: 1.4rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.6rem 1rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.14s ease-out, box-shadow 0.14s ease-out,
+        background 0.14s ease-out, border-color 0.14s ease-out;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #38bdf8, #2563eb);
+      color: white;
+      box-shadow: 0 20px 40px rgba(37, 99, 235, 0.55);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 26px 55px rgba(37, 99, 235, 0.75);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.8);
+      border-color: rgba(148, 163, 184, 0.6);
+      color: var(--muted);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 1);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .btn span.icon {
+      font-size: 1rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .hero-meta-block {
+      padding: 0.9rem 1rem;
+      border-radius: 1.1rem;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .hero-meta-title {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(148, 163, 184, 0.95);
+      margin-bottom: 0.35rem;
+    }
+
+    .hero-meta-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .hero-meta-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.15rem 0;
+    }
+
+    .hero-meta-label {
+      color: var(--muted);
+    }
+
+    .hero-meta-value {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    main {
+      margin-top: 1.75rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.4fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 840px) {
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    section {
+      background: linear-gradient(145deg,
+          rgba(15, 23, 42, 0.9),
+          rgba(15, 23, 42, 0.98));
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+      padding: 1.4rem 1.5rem 1.35rem;
+    }
+
+    section h2 {
+      font-size: 1rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(148, 163, 184, 0.95);
+      margin: 0 0 0.8rem;
+    }
+
+    section p {
+      margin: 0.35rem 0;
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .list {
+      list-style: none;
+      margin: 0.4rem 0 0;
+      padding: 0;
+      font-size: 0.9rem;
+    }
+
+    .list li {
+      padding: 0.35rem 0;
+      color: var(--muted);
+    }
+
+    .list strong {
+      color: var(--text);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.25rem;
+    }
+
+    .pill {
+      font-size: 0.8rem;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.6rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-links a {
+      color: var(--accent);
+      text-decoration: none;
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      background: rgba(15, 23, 42, 0.9);
+      transition: background 0.14s ease-out, transform 0.14s ease-out,
+        box-shadow 0.14s ease-out;
+    }
+
+    .contact-links a:hover {
+      background: rgba(15, 23, 42, 1);
+      transform: translateY(-1px);
+      box-shadow: 0 18px 30px rgba(8, 47, 73, 0.7);
+    }
+
+    footer {
+      margin-top: 1.75rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <div class="badge">
+        <span class="badge-dot"></span>
+        <span>Available for conversations · Seattle, WA</span>
+      </div>
+      <div class="hero">
+        <div class="hero-main">
+          <h1>Douglas <span>Korinke</span></h1>
+          <p class="hero-subtitle">
+            Technical Delivery Manager focused on PLM implementations,
+            platform integrations, and pragmatic automation. I help teams get
+            from "whiteboard" to maintainable, production-ready systems.
+          </p>
+          <div class="hero-tags">
+            <span class="hero-tag">Technical Delivery</span>
+            <span class="hero-tag">PLM &amp; Integrations</span>
+            <span class="hero-tag">Python · TypeScript · SQL</span>
+            <span class="hero-tag">Homelab &amp; DevOps</span>
+          </div>
+          <div class="hero-actions">
+            <a href="mailto:douglas@douglas-korinke.com" class="btn btn-primary">
+              <span class="icon">✉️</span>
+              <span>Contact</span>
+            </a>
+            <a href="#work" class="btn btn-ghost">
+              <span class="icon">⬇</span>
+              <span>View experience</span>
+            </a>
+          </div>
+        </div>
+        <aside class="hero-meta">
+          <div class="hero-meta-block">
+            <div class="hero-meta-title">Snapshot</div>
+            <ul class="hero-meta-list">
+              <li>
+                <span class="hero-meta-label">Role</span>
+                <span class="hero-meta-value">Technical Delivery Manager</span>
+              </li>
+              <li>
+                <span class="hero-meta-label">Focus</span>
+                <span class="hero-meta-value">PLM, integrations, automation</span>
+              </li>
+              <li>
+                <span class="hero-meta-label">Based in</span>
+                <span class="hero-meta-value">Seattle, WA</span>
+              </li>
+            </ul>
+          </div>
+          <div class="hero-meta-block">
+            <div class="hero-meta-title">Currently</div>
+            <p>
+              Leading technical delivery for PLM implementations, mentoring
+              consultants, and experimenting with homelab tooling (Docker,
+              Django, RAG, and more).
+            </p>
+          </div>
+        </aside>
       </div>
     </header>
 
-    <main class="site-main">
-      <section class="hero">
-        <div class="container">
-          <h2>Welcome</h2>
-          <p>
-            This is my personal domain for experimentation, self-hosting, and
-            automation projects. Some services are private and require
-            authentication.
-          </p>
+    <main>
+      <section id="about">
+        <h2>About</h2>
+        <p>
+          I work at the intersection of product configuration, integrations,
+          and delivery management - translating business requirements into
+          systems that teams can actually run and evolve.
+        </p>
+        <p>Recent work has focused on:</p>
+        <ul class="list">
+          <li>
+            Designing and delivering PLM configurations for apparel &amp;
+            retail.
+          </li>
+          <li>
+            Building internal tools to simplify complex implementation work.
+          </li>
+          <li>
+            Developing automation and data pipelines in Python and TypeScript.
+          </li>
+        </ul>
+        <div class="pill-row">
+          <span class="pill">PLM implementation</span>
+          <span class="pill">Camunda &amp; workflow</span>
+          <span class="pill">Python tooling</span>
+          <span class="pill">Docker &amp; homelab</span>
         </div>
       </section>
 
-      <section class="section">
-        <div class="container">
-          <h3>Projects & Services</h3>
-          <ul class="card-list">
-            <li class="card">
-              <h4>Automation (n8n)</h4>
-              <p>
-                Self-hosted workflow automation for integrating tools and
-                services I use day to day.
-              </p>
-              <p class="card-link">
-                <a
-                  href="https://n8n.douglas-korinke.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Open n8n
-                </a>
-                <span class="card-note">(login required)</span>
-              </p>
-            </li>
-            <li class="card">
-              <h4>Homelab</h4>
-              <p>
-                Docker-based services, monitoring, and experiments running on a
-                home server and Cloudflare Tunnel.
-              </p>
-            </li>
-            <li class="card">
-              <h4>Future Projects</h4>
-              <p>
-                Space reserved for additional tools, dashboards, and public
-                resources as I expand this site.
-              </p>
-            </li>
-          </ul>
-        </div>
+      <section id="work">
+        <h2>Work &amp; Projects</h2>
+        <p>A few areas I've been spending time on:</p>
+        <ul class="list">
+          <li>
+            <strong>Client Services tooling.</strong>
+            Internal Django + Python utilities to centralize configuration
+            logic, reporting, and repeatable implementation workflows.
+          </li>
+          <li>
+            <strong>PLM automation &amp; integrations.</strong>
+            Scripts and services that connect PLM to ERPs, reporting tools,
+            and downstream systems in a traceable way.
+          </li>
+          <li>
+            <strong>Homelab &amp; experimentation.</strong>
+            Self-hosted stacks (Docker, Portainer, RAG experiments) to
+            prototype ideas before they become client-facing solutions.
+          </li>
+        </ul>
+        <p>
+          If you're interested in collaboration, speaking, or comparing notes
+          on implementation strategy, feel free to reach out.
+        </p>
       </section>
 
-      <section class="section">
-        <div class="container">
-          <h3>Contact</h3>
-          <p>
-            This site is primarily for personal use. If you believe this domain
-            has been flagged in error, it is not hosting phishing content and is
-            only used for personal infrastructure.
-          </p>
+      <section id="writing">
+        <h2>Writing &amp; Notes</h2>
+        <p>I occasionally write about:</p>
+        <ul class="list">
+          <li>
+            Making complex implementations less scary for non-engineers.
+          </li>
+          <li>
+            Bridging the gap between "consulting slides" and working code.
+          </li>
+          <li>
+            Lessons from homelab experiments that inform production systems.
+          </li>
+        </ul>
+        <p>Links will go here once I publish posts or public talks.</p>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>
+          The best way to reach me is via email. I'm open to conversations
+          about:
+        </p>
+        <ul class="list">
+          <li>Technical delivery &amp; implementation strategy.</li>
+          <li>PLM, integrations, and automation.</li>
+          <li>Homelab setups and developer tooling.</li>
+        </ul>
+        <div class="contact-links">
+          <a href="mailto:douglas@douglas-korinke.com">Email</a>
+          <a href="https://www.linkedin.com/in/douglaskorinke/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://github.com/douglas-korinke" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://stackoverflow.com/users/3850869/douglas-korinke" target="_blank"
+            rel="noreferrer">StackOverflow</a>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="container">
-        <p>&copy; <span id="year"></span> Douglas Korinke</p>
+    <footer>
+      <div>
+        © <span id="year"></span> Douglas Korinke. All rights reserved.
       </div>
     </footer>
+  </div>
 
-    <script>
-      // Simple dynamic year
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
-  </body>
+  <script>
+    // Keep the year current
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+
 </html>
