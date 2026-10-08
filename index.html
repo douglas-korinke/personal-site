@@ -77,155 +77,143 @@
       box-shadow: 0 0 0 6px rgba(56, 189, 248, 0.25);
     }
 
-    .hero {
-      margin-top: 0.9rem;
-      padding: 1.75rem 1.75rem 1.5rem;
-      border-radius: 1.75rem;
-      background: radial-gradient(circle at top left, #1d283a 0, #020617 55%);
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      box-shadow: var(--shadow-soft);
-      display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
-      gap: 1.75rem;
-    }
-
-    @media (max-width: 720px) {
-      body {
-        padding-top: 1.75rem;
-      }
-
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .hero-main h1 {
-      font-size: clamp(2.1rem, 3vw, 2.7rem);
-      letter-spacing: -0.04em;
-      margin: 0 0 0.4rem;
-    }
-
-    .hero-main h1 span {
-      color: var(--accent);
-    }
-
-    .hero-subtitle {
-      font-size: 1rem;
-      color: var(--muted);
-      max-width: 32rem;
-      line-height: 1.6;
-    }
-
-    .hero-tags {
-      margin-top: 0.75rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      font-size: 0.8rem;
-    }
-
-    .hero-tag {
-      padding: 0.2rem 0.6rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      color: var(--muted);
-      background: rgba(15, 23, 42, 0.85);
-    }
-
-    .hero-actions {
-      margin-top: 1.4rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.45rem;
-      padding: 0.6rem 1rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-size: 0.9rem;
-      text-decoration: none;
-      cursor: pointer;
-      transition: transform 0.14s ease-out, box-shadow 0.14s ease-out,
-        background 0.14s ease-out, border-color 0.14s ease-out;
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      overflow: hidden;
       white-space: nowrap;
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, #38bdf8, #2563eb);
-      color: white;
-      box-shadow: 0 20px 40px rgba(37, 99, 235, 0.55);
+    .terminal {
+      margin-top: 0.9rem;
+      border-radius: 1.5rem;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: #020617;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
     }
 
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 26px 55px rgba(37, 99, 235, 0.75);
+    .terminal-head {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.7rem 1rem;
+      background: rgba(15, 23, 42, 0.95);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
     }
 
-    .btn-ghost {
-      background: rgba(15, 23, 42, 0.8);
-      border-color: rgba(148, 163, 184, 0.6);
+    .terminal-dot {
+      width: 0.72rem;
+      height: 0.72rem;
+      border-radius: 999px;
+    }
+
+    .terminal-dot.red {
+      background: #f87171;
+    }
+
+    .terminal-dot.yellow {
+      background: #fbbf24;
+    }
+
+    .terminal-dot.green {
+      background: #34d399;
+    }
+
+    .terminal-title {
+      margin-left: 0.55rem;
+      font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas,
+        monospace;
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .terminal-body {
+      font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas,
+        monospace;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      padding: 1.1rem 1.25rem;
+      height: 21rem;
+      overflow-y: auto;
+      background: radial-gradient(circle at top right, #0a1220 0, #010409 70%);
+      cursor: text;
+    }
+
+    @media (max-width: 720px) {
+      .terminal-body {
+        height: 17rem;
+        font-size: 0.82rem;
+      }
+    }
+
+    .term-line {
+      white-space: pre-wrap;
+      word-break: break-word;
       color: var(--muted);
     }
 
-    .btn-ghost:hover {
-      background: rgba(15, 23, 42, 1);
-      border-color: var(--accent);
+    .term-line a {
       color: var(--accent);
-      transform: translateY(-1px);
     }
 
-    .btn span.icon {
-      font-size: 1rem;
+    .t-green {
+      color: #4ade80;
     }
 
-    .hero-meta {
-      display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
-      font-size: 0.85rem;
-      color: var(--muted);
+    .t-red {
+      color: #f87171;
     }
 
-    .hero-meta-block {
-      padding: 0.9rem 1rem;
-      border-radius: 1.1rem;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.4);
+    .t-accent {
+      color: var(--accent);
     }
 
-    .hero-meta-title {
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(148, 163, 184, 0.95);
-      margin-bottom: 0.35rem;
-    }
-
-    .hero-meta-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .hero-meta-list li {
-      display: flex;
-      justify-content: space-between;
-      gap: 0.75rem;
-      padding: 0.15rem 0;
-    }
-
-    .hero-meta-label {
-      color: var(--muted);
-    }
-
-    .hero-meta-value {
+    .t-text {
       color: var(--text);
-      font-weight: 500;
+    }
+
+    .t-bold {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .prompt-line {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .prompt-line .term-prompt {
+      white-space: nowrap;
+    }
+
+    #terminal-input {
+      flex: 1;
+      min-width: 0;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font: inherit;
+      caret-color: var(--accent);
+    }
+
+    .terminal-hint {
+      margin-top: 0.75rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .terminal-hint code {
+      color: var(--accent);
+      font-family: inherit;
     }
 
     main {
@@ -347,59 +335,27 @@
         <span class="badge-dot"></span>
         <span>Available for conversations · Seattle, WA</span>
       </div>
-      <div class="hero">
-        <div class="hero-main">
-          <h1>Douglas <span>Korinke</span></h1>
-          <p class="hero-subtitle">
-            Technical Delivery Manager focused on PLM implementations,
-            platform integrations, and pragmatic automation. I help teams get
-            from "whiteboard" to maintainable, production-ready systems.
-          </p>
-          <div class="hero-tags">
-            <span class="hero-tag">Technical Delivery</span>
-            <span class="hero-tag">PLM &amp; Integrations</span>
-            <span class="hero-tag">Python · TypeScript · SQL</span>
-            <span class="hero-tag">Homelab &amp; DevOps</span>
-          </div>
-          <div class="hero-actions">
-            <a href="mailto:douglas@douglas-korinke.com" class="btn btn-primary">
-              <span class="icon">✉️</span>
-              <span>Contact</span>
-            </a>
-            <a href="#work" class="btn btn-ghost">
-              <span class="icon">⬇</span>
-              <span>View experience</span>
-            </a>
+      <h1 class="visually-hidden">Douglas Korinke</h1>
+      <div class="terminal" id="terminal">
+        <div class="terminal-head">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot yellow"></span>
+          <span class="terminal-dot green"></span>
+          <span class="terminal-title">douglas@homelab:~ — zsh</span>
+        </div>
+        <div class="terminal-body" id="terminal-body">
+          <div id="terminal-lines"></div>
+          <div class="term-line prompt-line">
+            <span class="term-prompt t-green">douglas@homelab<span
+                class="t-muted">:~$</span></span>
+            <input id="terminal-input" type="text" autocomplete="off"
+              autocapitalize="off" autocorrect="off" spellcheck="false"
+              aria-label="Type a command" />
           </div>
         </div>
-        <aside class="hero-meta">
-          <div class="hero-meta-block">
-            <div class="hero-meta-title">Snapshot</div>
-            <ul class="hero-meta-list">
-              <li>
-                <span class="hero-meta-label">Role</span>
-                <span class="hero-meta-value">Technical Delivery Manager</span>
-              </li>
-              <li>
-                <span class="hero-meta-label">Focus</span>
-                <span class="hero-meta-value">PLM, integrations, automation</span>
-              </li>
-              <li>
-                <span class="hero-meta-label">Based in</span>
-                <span class="hero-meta-value">Seattle, WA</span>
-              </li>
-            </ul>
-          </div>
-          <div class="hero-meta-block">
-            <div class="hero-meta-title">Currently</div>
-            <p>
-              Leading technical delivery for PLM implementations, mentoring
-              consultants, and experimenting with homelab tooling (Docker,
-              Django, RAG, and more).
-            </p>
-          </div>
-        </aside>
       </div>
+      <p class="terminal-hint">It's a real terminal (sort of). Type
+        <code>help</code> and press Enter.</p>
     </header>
 
     <main>
@@ -505,6 +461,194 @@
   <script>
     // Keep the year current
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Interactive terminal hero
+    (() => {
+      const body = document.getElementById("terminal-body");
+      const out = document.getElementById("terminal-lines");
+      const input = document.getElementById("terminal-input");
+      const prompt =
+        '<span class="t-green">douglas@homelab</span><span class="t-muted">:~$</span> ';
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const history = [];
+      let historyIndex = -1;
+
+      const escape = (s) =>
+        s.replace(/[&<>"']/g, (c) =>
+          ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+      const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+      function print(html) {
+        const line = document.createElement("div");
+        line.className = "term-line";
+        line.innerHTML = html;
+        out.appendChild(line);
+        body.scrollTop = body.scrollHeight;
+        return line;
+      }
+
+      async function typeCommand(cmd) {
+        const line = print(prompt + '<span class="t-text"></span>');
+        const span = line.lastElementChild;
+        if (reduced) {
+          span.textContent = cmd;
+          return;
+        }
+        for (const ch of cmd) {
+          span.textContent += ch;
+          await sleep(24 + Math.random() * 42);
+        }
+      }
+
+      const commands = {
+        help: () => [
+          '<span class="t-bold">Available commands:</span>',
+          '  <span class="t-accent">whoami</span>      who I am',
+          '  <span class="t-accent">about</span>       what I do',
+          '  <span class="t-accent">projects</span>    things I build',
+          '  <span class="t-accent">skills</span>      tools I reach for',
+          '  <span class="t-accent">homelab</span>     what runs in my closet',
+          '  <span class="t-accent">contact</span>     how to reach me',
+          '  <span class="t-accent">ls</span>         list files (try <span class="t-accent">cat</span> on one)',
+          '  <span class="t-accent">clear</span>      wipe the screen',
+        ],
+        whoami: () => [
+          '<span class="t-bold">Douglas Korinke</span> — Technical Delivery Manager (PLM),',
+          "homelab tinkerer, based in Seattle, WA.",
+        ],
+        about: () => [
+          "I work at the intersection of product configuration, integrations,",
+          'and delivery management — translating "consulting slides" into',
+          "systems teams can actually run and evolve.",
+        ],
+        projects: () => [
+          '<span class="t-bold">plm-automation/</span>    PLM connected to ERPs and reporting, traceably',
+          '<span class="t-bold">client-tooling/</span>    Django + Python utilities for repeatable implementations',
+          '<span class="t-bold">rag-experiments/</span>   retrieval prototypes, run on the homelab first',
+          '<span class="t-bold">homelab/</span>           Docker, Portainer, and self-hosted everything',
+        ],
+        skills: () => [
+          "Python · TypeScript · SQL",
+          "PLM &amp; integrations · Camunda &amp; workflow",
+          "Docker &amp; homelab ops · delivery management",
+        ],
+        homelab: () => [
+          "Docker, Portainer, a few Raspberry Pis, and at least one",
+          "service nobody remembers deploying. Uptime: mostly fine.",
+        ],
+        contact: () => [
+          '  email: <a href="mailto:douglas@douglas-korinke.com">douglas@douglas-korinke.com</a>',
+          '  <a href="https://www.linkedin.com/in/douglaskorinke/" target="_blank" rel="noreferrer">LinkedIn</a> · <a href="https://github.com/douglas-korinke" target="_blank" rel="noreferrer">GitHub</a> · <a href="https://stackoverflow.com/users/3850869/douglas-korinke" target="_blank" rel="noreferrer">StackOverflow</a>',
+        ],
+        ls: (args) => {
+          const target = args && args[0] ? args[0].replace(/\/$/, "") : "";
+          if (target && commands[target]) return commands[target]();
+          return ["about.txt  contact.txt  projects/  skills.txt"];
+        },
+      };
+
+      commands.cat = (args) => {
+        const name = args && args[0] ? args[0].toLowerCase() : "";
+        if (!name) return ["cat: missing file operand"];
+        const alias = {
+          "about.txt": "about",
+          "contact.txt": "contact",
+          "skills.txt": "skills",
+        }[name];
+        if (!alias) return ["cat: " + escape(name) + ": No such file or directory"];
+        return commands[alias]();
+      };
+
+      commands.sudo = () => [
+        "douglas is not in the sudoers file. This incident will be reported.",
+      ];
+      commands.exit = () => [
+        "There is no escape from the homelab. Try 'contact' instead.",
+      ];
+      commands.resume = commands.cv = () => [
+        "Email douglas@douglas-korinke.com and I'll send the latest.",
+      ];
+
+      function run(raw) {
+        const trimmed = raw.trim();
+        if (!trimmed) {
+          print(prompt.trimEnd());
+          return;
+        }
+        print(prompt + '<span class="t-text">' + escape(trimmed) + "</span>");
+        const parts = trimmed.split(/\s+/);
+        const name = parts[0].toLowerCase();
+        const args = parts.slice(1);
+        if (name === "clear") {
+          out.innerHTML = "";
+          return;
+        }
+        const cmd = commands[name];
+        if (cmd) {
+          for (const line of cmd(args)) print(line);
+        } else {
+          print(
+            'zsh: command not found: <span class="t-red">' + escape(name) +
+            '</span> — try <span class="t-accent">help</span>'
+          );
+        }
+      }
+
+      async function boot() {
+        const seq = [
+          ["whoami", commands.whoami()],
+          ["cat about.txt", commands.about()],
+          ["ls projects/", commands.projects()],
+        ];
+        if (reduced) {
+          for (const [cmd, lines] of seq) {
+            print(prompt + '<span class="t-text">' + escape(cmd) + "</span>");
+            lines.forEach((l) => print(l));
+          }
+        } else {
+          await sleep(600);
+          for (const [cmd, lines] of seq) {
+            await typeCommand(cmd);
+            await sleep(140);
+            lines.forEach((l) => print(l));
+            await sleep(300);
+          }
+        }
+        print('Type <span class="t-accent">help</span> for the full tour, or scroll for the quieter version below.');
+      }
+
+      body.addEventListener("click", () => input.focus());
+
+      input.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          const value = input.value;
+          input.value = "";
+          if (value.trim()) {
+            history.unshift(value);
+            historyIndex = -1;
+          }
+          run(value);
+        } else if (event.key === "ArrowUp") {
+          event.preventDefault();
+          if (history.length) {
+            historyIndex = Math.min(historyIndex + 1, history.length - 1);
+            input.value = history[historyIndex];
+          }
+        } else if (event.key === "ArrowDown") {
+          event.preventDefault();
+          if (historyIndex > 0) {
+            historyIndex -= 1;
+            input.value = history[historyIndex];
+          } else {
+            historyIndex = -1;
+            input.value = "";
+          }
+        }
+      });
+
+      boot();
+    })();
   </script>
 </body>
 
